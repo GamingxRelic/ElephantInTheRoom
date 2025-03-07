@@ -40,6 +40,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Ground
+    uniqueID: 2998877673
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Objects
+    uniqueID: 2823056727
+    locked: 0
+  - name: Player
+    uniqueID: 2191916709
+    locked: 0
+  - name: InFrontOfPlayer
+    uniqueID: 823534873
     locked: 0
