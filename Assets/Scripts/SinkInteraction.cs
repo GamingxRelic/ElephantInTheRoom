@@ -7,6 +7,9 @@ public class SinkInteraction : MonoBehaviour
     Animator anim; // Has animations for ON, OFF
     bool on = false;
 
+    [SerializeField] private AudioSource water_flow_audio;
+    [SerializeField] private AudioSource faucet_squeek_audio;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -52,12 +55,16 @@ public class SinkInteraction : MonoBehaviour
     void TurnOff()
     {
         anim.SetTrigger("Off");
+        faucet_squeek_audio.Play();
+        water_flow_audio.Stop();
         on = false;
     }
 
     void TurnOn()
     {
         anim.SetTrigger("On");
+        faucet_squeek_audio.Play();
+        water_flow_audio.Play();
         on = true;
     }
 }

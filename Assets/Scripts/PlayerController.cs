@@ -7,6 +7,9 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody2D rb;
+    SpriteRenderer sprite;
+    Animator animator;
+
     [SerializeField] float speed = 10f;
     [SerializeField] float acceleration = 0.5f;
     [SerializeField] float deceleration = 0.7f;
@@ -56,21 +59,22 @@ public class PlayerController : MonoBehaviour
         }
 
         rb = GetComponent<Rigidbody2D>();
-
+        sprite = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
     }
 
     void FixedUpdate()
     {
         Vector2 movement = move.ReadValue<Vector2>();
 
-        if(movement.magnitude > 1.0f)
+        if (movement.magnitude > 1.0f)
         {
             movement.Normalize();
         }
 
         Vector2 vel = rb.velocity;
 
-        if(movement.magnitude > 0)
+        if (movement.magnitude > 0)
         {
             rb.velocity = Vector2.Lerp(vel, movement * speed, acceleration);
         }
@@ -79,6 +83,23 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector2.Lerp(vel, movement * speed, deceleration);
         }
 
+        if (rb.velocity.x > 1.0f)
+        {
+            sprite.flipX = true;
+        }
+        else if (rb.velocity.x < -1.0f)
+        {
+            sprite.flipX = false;
+        }
+
+        if (rb.velocity.magnitude > 0.1f)
+        {
+            animator.SetBool("is_moving", true);
+        }
+        else
+        {
+            animator.SetBool("is_moving", false);
+        }
     }
 
     private void InteractWithObject()

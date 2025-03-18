@@ -9,6 +9,9 @@ public class ToasterInteraction : MonoBehaviour
     bool toast_ready = false;
     [SerializeField] float time_to_toast = 1.0f;
 
+    [SerializeField] AudioSource toaster_audio;
+    [SerializeField] AudioSource toast_crunch;
+
     public void OnInteract()
     {
         if (!has_bread &&
@@ -33,7 +36,7 @@ public class ToasterInteraction : MonoBehaviour
             PlayerController.instance.held_object = null;
         }
 
-        print("Took bread!");
+        toaster_audio.Play();
         has_bread = true;
         StartCoroutine(CookTimer(time_to_toast)); // Toast bread
     }
@@ -43,7 +46,7 @@ public class ToasterInteraction : MonoBehaviour
         // When the player interacts with the toaster
         // and toast_ready is true, the player will
         // eat the toast.
-        print("Toast eaten!");
+        toast_crunch.Play();
         has_bread = false;
         toast_ready = false;
     }

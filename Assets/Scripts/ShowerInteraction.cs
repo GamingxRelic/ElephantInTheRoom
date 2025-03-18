@@ -10,6 +10,9 @@ public class ShowerInteraction : MonoBehaviour
 
     float wet_player_duration = 3.0f; // How long the player will be wet after leaving the shower
 
+    [SerializeField] private AudioSource water_flow_audio;
+    [SerializeField] private AudioSource faucet_squeek_audio;
+
     public void OnInteract()
     {
         if (on)
@@ -20,6 +23,7 @@ public class ShowerInteraction : MonoBehaviour
         {
             TurnOn();
         }
+        faucet_squeek_audio.Play();
     }
 
     void TurnOff()
@@ -34,6 +38,7 @@ public class ShowerInteraction : MonoBehaviour
                 StartCoroutine(PlayerController.instance.StartDrippingWater(wet_player_duration));
             }
         }
+        water_flow_audio.Stop();
         on = false;
     }
 
@@ -44,6 +49,8 @@ public class ShowerInteraction : MonoBehaviour
             shower_particles.Play();
         }
         on = true;
+
+        water_flow_audio.Play();
 
         if (player_in_range &&
             PlayerController.instance != null)
