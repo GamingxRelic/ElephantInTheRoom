@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     public PickableObject held_object = null;
     public Transform hand_point; // Transform of where held items will be positioned at.
+    public Transform drop_point; // Transform of where held items will be dropped from.
 
     List<PickableObject> pickable_objects_in_range = new List<PickableObject>();
     List<InteractionObject> interaction_objects_in_range = new List<InteractionObject>();
@@ -134,6 +135,7 @@ public class PlayerController : MonoBehaviour
         if (held_object != null)
         {
             held_object.transform.SetParent(null);
+            held_object.transform.position = drop_point.position; // Drop the object at the drop point
             held_object = null;
             // NOTE: This may cause issues later when switching scenes while holding the same object.
             // Take a look at SceneManager.MoveObjectToScene for all

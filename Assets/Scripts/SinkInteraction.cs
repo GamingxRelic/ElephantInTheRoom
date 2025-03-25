@@ -9,6 +9,7 @@ public class SinkInteraction : MonoBehaviour
 
     [SerializeField] private AudioSource water_flow_audio;
     [SerializeField] private AudioSource faucet_squeek_audio;
+    [SerializeField] private AudioSource toothbrush_audio;
 
     void Start()
     {
@@ -17,17 +18,28 @@ public class SinkInteraction : MonoBehaviour
 
     public void OnInteract()
     {
-        if (on &&
-            PlayerController.instance.held_object != null &&
-            PlayerController.instance.held_object.id == "burnt_toast")
+        if (on)
         {
-            TakeToast();
+            if (PlayerController.instance.held_object != null)
+            {
+                if (PlayerController.instance.held_object.id == "burnt_toast")
+                {
+                    TakeToast();
+                }
+                else if (PlayerController.instance.held_object.id == "toothbrush")
+                {
+                    toothbrush_audio.Play();
+                }
+            }
+            else
+            {
+                TurnOff();
+            }
         }
-        else if (on)
-            TurnOff();
         else
+        {
             TurnOn();
-
+        }
     }
 
     void TakeToast()

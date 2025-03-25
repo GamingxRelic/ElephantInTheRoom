@@ -55,7 +55,15 @@ public class ShowerInteraction : MonoBehaviour
         if (player_in_range &&
             PlayerController.instance != null)
         {
-            PlayerController.instance.StartDrippingWater(); // Start dripping water when entering the shower
+            PlayerController.instance.StartDrippingWater(); // Start dripping water when entering the shower    
+            // Stop any burning particles from the burnt toast
+            PickableObject held_object = PlayerController.instance.held_object;
+            if (held_object != null &&
+                held_object.id == "burnt_toast")
+            {
+                ParticleSystem burning_particles = held_object.gameObject.GetComponentInChildren<ParticleSystem>();
+                burning_particles.Stop();
+            }
         }
     }
 
