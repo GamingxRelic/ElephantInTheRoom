@@ -64,6 +64,15 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+
+    private void Update()
+    {
+        if(held_object != null)
+        {
+            held_object.GetComponent<SpriteRenderer>().sortingOrder = sprite.sortingOrder;
+        }
+    }
+
     void FixedUpdate()
     {
         Vector2 movement = move.ReadValue<Vector2>();
@@ -120,12 +129,13 @@ public class PlayerController : MonoBehaviour
         {
             if (held_object != null)
             {
-                DropObject(); // Drop the current held object before picking up a new one.
+                DropObject(pickable_objects_in_range[0].transform); // Drop the current held object before picking up a new one.
             }
             // Pick up the first object in range
             held_object = pickable_objects_in_range[0];
             held_object.transform.SetParent(hand_point);
             held_object.transform.position = hand_point.position;
+
         }
     }
 
@@ -136,8 +146,29 @@ public class PlayerController : MonoBehaviour
         {
             held_object.transform.SetParent(null);
             held_object.transform.position = drop_point.position; // Drop the object at the drop point
+            held_object.GetComponent<SpriteRenderer>().sortingOrder = sprite.sortingOrder;
             held_object = null;
+            
+
             // NOTE: This may cause issues later when switching scenes while holding the same object.
+            // THis would only be a problem if we keep the same player instance and switch scenes.
+            // Take a look at SceneManager.MoveObjectToScene for all
+            // children objects of PlayerController.instance.hand_point
+        }
+    }
+
+    public void DropObject(Transform transf) // For dropping objects at a specific location, usually swapping position with another object.
+    {
+        if (held_object != null)
+        {
+            held_object.transform.SetParent(null);
+            held_object.transform.position = transf.position; // Drop the object at the specified point
+            held_object.GetComponent<SpriteRenderer>().sortingOrder = sprite.sortingOrder;
+            held_object = null;
+
+
+            // NOTE: This may cause issues later when switching scenes while holding the same object.
+            // THis would only be a problem if we keep the same player instance and switch scenes.
             // Take a look at SceneManager.MoveObjectToScene for all
             // children objects of PlayerController.instance.hand_point
         }
