@@ -12,6 +12,10 @@ public class ToasterInteraction : MonoBehaviour
     [SerializeField] AudioSource toaster_audio;
     [SerializeField] AudioSource toast_crunch;
 
+    [SerializeField] SpriteRenderer sprite_renderer;
+    [SerializeField] Sprite base_sprite;
+    [SerializeField] Animator animator;
+
     public void OnInteract()
     {
         if (!has_bread &&
@@ -37,6 +41,7 @@ public class ToasterInteraction : MonoBehaviour
         }
 
         toaster_audio.Play();
+        animator.SetTrigger("Toast");
         has_bread = true;
         StartCoroutine(CookTimer(time_to_toast)); // Toast bread
     }
@@ -47,6 +52,7 @@ public class ToasterInteraction : MonoBehaviour
         // and toast_ready is true, the player will
         // eat the toast.
         toast_crunch.Play();
+        animator.SetTrigger("Idle");
         has_bread = false;
         toast_ready = false;
     }
@@ -54,6 +60,7 @@ public class ToasterInteraction : MonoBehaviour
     private IEnumerator CookTimer(float wait_time)
     {
         yield return new WaitForSeconds(wait_time);
+        animator.SetTrigger("Finish");
         toast_ready = true;
     }
 }

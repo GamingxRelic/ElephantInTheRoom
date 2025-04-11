@@ -25,6 +25,7 @@ public class FollowCursor : MonoBehaviour
         // You can alternatively use the interface IAstarAI,
         // which makes the code work with all movement scripts
         ai = GetComponent<AILerp>();
+        ai.enableRotation = false;
         fire = player_input.Player.Fire;
         fire.Enable();
         player_input.Player.Fire.performed += InteractPerformed;
@@ -43,5 +44,35 @@ public class FollowCursor : MonoBehaviour
         Vector3 point = Camera.main.ScreenToWorldPoint(mousePosition);
 
         ai.destination = point;
+    }
+
+    private void Update()
+    {
+        if (ai.reachedDestination)
+        {
+            // Get the trigger capsule collider attached to this GameObject
+            CapsuleCollider2D triggerCollider = GetComponent<CapsuleCollider2D>();
+
+            if (triggerCollider != null)
+            {
+                // Check for objects with the "PickableObject" tag within the trigger collider's bounds
+                Collider2D[] hitColliders = Physics2D.OverlapCapsuleAll(
+                    triggerCollider.bounds.center,
+                    triggerCollider.size,
+                    CapsuleDirection2D.Vertical,
+                    0f
+                );
+
+                foreach (var hitCollider in hitColliders)
+                {
+                    if (hitCollider.gameObject.CompareTag("PickableObject"))
+                    {
+                        // Destroy the object
+                        Destroy(hitCollider.gameObject);
+                        break; // Exit after deleting the first object in range
+                    }
+                }
+            }
+        }
     }
 }

@@ -1,3 +1,4 @@
+using Cinemachine.Utility;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed = 10f;
     [SerializeField] float acceleration = 0.5f;
     [SerializeField] float deceleration = 0.7f;
+    bool flipped = false; // If the player is flipped or not (for animations)
 
     public static PlayerController instance; // Main instance of this object
 
@@ -95,11 +97,21 @@ public class PlayerController : MonoBehaviour
 
         if (rb.velocity.x > 1.0f)
         {
-            sprite.flipX = true;
+            //sprite.flipX = true;
+            if(!flipped)
+            {
+                flipped = true;
+                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+            }
         }
         else if (rb.velocity.x < -1.0f)
         {
-            sprite.flipX = false;
+            //sprite.flipX = false;
+            if (flipped)
+            {
+                flipped = false;
+                transform.localScale = new Vector3(transform.localScale.x * -1f, transform.localScale.y, transform.localScale.z);
+            }
         }
 
         if (rb.velocity.magnitude > 0.1f)
@@ -146,6 +158,7 @@ public class PlayerController : MonoBehaviour
         {
             held_object.transform.SetParent(null);
             held_object.transform.position = drop_point.position; // Drop the object at the drop point
+            held_object.transform.localScale = held_object.transform.localScale.Abs(); // Drop the object at the drop point
             held_object.GetComponent<SpriteRenderer>().sortingOrder = sprite.sortingOrder;
             held_object = null;
             
