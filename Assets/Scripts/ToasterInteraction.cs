@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using static ChecklistHandler;
 
 public class ToasterInteraction : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class ToasterInteraction : MonoBehaviour
         animator.SetTrigger("Toast");
         has_bread = true;
         StartCoroutine(CookTimer(time_to_toast)); // Toast bread
+
     }
 
     private void GiveToast()
@@ -55,6 +57,9 @@ public class ToasterInteraction : MonoBehaviour
         animator.SetTrigger("Idle");
         has_bread = false;
         toast_ready = false;
+
+        ChecklistHandler.instance.TriggerGoal("eat_breakfast");
+
     }
 
     private IEnumerator CookTimer(float wait_time)

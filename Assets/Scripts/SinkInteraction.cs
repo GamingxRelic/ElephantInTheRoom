@@ -29,6 +29,7 @@ public class SinkInteraction : MonoBehaviour
                 else if (PlayerController.instance.held_object.id == "toothbrush")
                 {
                     toothbrush_audio.Play();
+                    ChecklistHandler.instance.TriggerGoal("brush_teeth");
                 }
             }
             else
@@ -62,7 +63,7 @@ public class SinkInteraction : MonoBehaviour
             PlayerController.instance.held_object = null;
         }
 
-        print("Sink took burnt toast!");
+        ChecklistHandler.instance.TriggerGoal("wash_burnt_toast");
     }
     void TurnOff()
     {

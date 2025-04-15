@@ -30,6 +30,8 @@ public class TVTableInteraction : MonoBehaviour
             tv_audio.Play();
             tv_on.enabled = true;
             tv_off.enabled = false;
+
+            ChecklistHandler.instance.TriggerGoal("watch_tv");
         }
         on = !on;
     }

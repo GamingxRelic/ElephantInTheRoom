@@ -12,6 +12,8 @@ public class ToiletInteraction : MonoBehaviour
         if (flush_sound != null)
         {
             flush_sound.Play();
+
+            ChecklistHandler.instance.TriggerGoal("flush_toilet");
         }
     }
 }

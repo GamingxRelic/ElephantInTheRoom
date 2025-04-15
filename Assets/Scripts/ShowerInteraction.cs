@@ -56,6 +56,9 @@ public class ShowerInteraction : MonoBehaviour
             PlayerController.instance != null)
         {
             PlayerController.instance.StartDrippingWater(); // Start dripping water when entering the shower    
+
+            ChecklistHandler.instance.TriggerGoal("take_shower"); 
+
             // Stop any burning particles from the burnt toast
             PickableObject held_object = PlayerController.instance.held_object;
             if (held_object != null &&
@@ -63,6 +66,8 @@ public class ShowerInteraction : MonoBehaviour
             {
                 ParticleSystem burning_particles = held_object.gameObject.GetComponentInChildren<ParticleSystem>();
                 burning_particles.Stop();
+
+                ChecklistHandler.instance.TriggerGoal("make_toast");
             }
         }
     }
@@ -76,6 +81,7 @@ public class ShowerInteraction : MonoBehaviour
             if (PlayerController.instance != null)
             {
                 PlayerController.instance.StartDrippingWater(); // Start dripping water when entering the shower
+                ChecklistHandler.instance.TriggerGoal("take_shower");
 
                 PickableObject held_object = PlayerController.instance.held_object;
                 if (held_object != null &&
@@ -83,6 +89,7 @@ public class ShowerInteraction : MonoBehaviour
                 {
                     ParticleSystem burning_particles = held_object.gameObject.GetComponentInChildren<ParticleSystem>();
                     burning_particles.Stop();
+                    ChecklistHandler.instance.TriggerGoal("wash_burnt_toast");
                 }
             }
         }

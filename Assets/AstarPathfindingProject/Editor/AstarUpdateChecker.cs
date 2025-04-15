@@ -133,13 +133,13 @@ namespace Pathfinding {
 
 		/// <summary>Initiate a check for updates now, regardless of when the last check was done</summary>
 		public static void CheckForUpdatesNow () {
-			lastUpdateCheck = System.DateTime.UtcNow.AddDays(-5);
+			//lastUpdateCheck = System.DateTime.UtcNow.AddDays(-5);
 
-			// Remove the callback if it already exists
-			EditorApplication.update -= UpdateCheckLoop;
+			//// Remove the callback if it already exists
+			//EditorApplication.update -= UpdateCheckLoop;
 
-			// Add a callback so that we can parse the message when it has been downloaded
-			EditorApplication.update += UpdateCheckLoop;
+			//// Add a callback so that we can parse the message when it has been downloaded
+			//EditorApplication.update += UpdateCheckLoop;
 		}
 
 		/// <summary>
@@ -220,12 +220,12 @@ namespace Pathfinding {
 						   "&branch="+AstarPath.Branch;
 
 #if UNITY_2018_1_OR_NEWER
-			updateCheckDownload = UnityWebRequest.Get(query);
-			updateCheckDownload.SendWebRequest();
+			//updateCheckDownload = UnityWebRequest.Get(query);
+			//updateCheckDownload.SendWebRequest();
 #else
 			updateCheckDownload = new WWW(query);
 #endif
-			lastUpdateCheck = System.DateTime.UtcNow;
+			//lastUpdateCheck = System.DateTime.UtcNow;
 		}
 
 		/// <summary>Handles the data from the update page</summary>

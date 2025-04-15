@@ -57,6 +57,8 @@ public class StoveInteraction : MonoBehaviour
 
         has_bread = false;
         toast_ready = false;
+
+        ChecklistHandler.instance.TriggerGoal("burn_toast");
     }
 
     private IEnumerator CookTimer(float wait_time)
