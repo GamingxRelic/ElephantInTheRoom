@@ -67,7 +67,7 @@ public class ShowerInteraction : MonoBehaviour
                 ParticleSystem burning_particles = held_object.gameObject.GetComponentInChildren<ParticleSystem>();
                 burning_particles.Stop();
 
-                ChecklistHandler.instance.TriggerGoal("make_toast");
+                ChecklistHandler.instance.TriggerGoal("wash_burnt_toast");
             }
         }
     }

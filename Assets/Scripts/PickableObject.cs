@@ -17,8 +17,6 @@ public class PickableObject : MonoBehaviour
 
             RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos2D, Vector2.zero, Mathf.Infinity, interactableLayers);
 
-            print(hit.collider.gameObject.name);
-
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
                 Debug.Log("clicked " + id);

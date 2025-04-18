@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
     {
         if(held_object != null)
         {
-            held_object.GetComponent<SpriteRenderer>().sortingOrder = sprite.sortingOrder;
+            held_object.GetComponent<SpriteRenderer>().sortingOrder = sprite.sortingOrder; //+ 1;
         }
     }
 
@@ -147,6 +147,7 @@ public class PlayerController : MonoBehaviour
             held_object = pickable_objects_in_range[0];
             held_object.transform.SetParent(hand_point);
             held_object.transform.position = hand_point.position;
+
 
         }
     }
