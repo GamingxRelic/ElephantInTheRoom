@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2769131749134416642}
   - component: {fileID: 6359330175981742326}
   - component: {fileID: 8995519429809570108}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: InteractionObject
   m_TagString: InteractionObject
   m_Icon: {fileID: 0}
@@ -101,6 +101,8 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls: []
+  outline_material: {fileID: 2100000, guid: e7dd448299e24f84fbaafc362f8534b7, type: 2}
+  default_material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!70 &8995519429809570108
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -116,7 +118,7 @@ CapsuleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 51
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2

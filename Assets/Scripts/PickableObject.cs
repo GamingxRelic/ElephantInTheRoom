@@ -8,21 +8,27 @@ public class PickableObject : MonoBehaviour
 
     [SerializeField] private LayerMask interactableLayers;
 
-    void Update()
+    private bool outlined = false;
+
+    [SerializeField] private Material outline_material;
+    [SerializeField] private Material default_material;
+
+    public bool Outlined
     {
-        if (Input.GetMouseButtonDown(0))
+        get => outlined;
+        set
         {
-            Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector2 mouseWorldPos2D = new Vector2(mouseWorldPos.x, mouseWorldPos.y);
-
-            RaycastHit2D hit = Physics2D.Raycast(mouseWorldPos2D, Vector2.zero, Mathf.Infinity, interactableLayers);
-
-            if (hit.collider != null && hit.collider.gameObject == gameObject)
+            if (value)
             {
-                Debug.Log("clicked " + id);
+                GetComponent<SpriteRenderer>().material = outline_material;
             }
+            else
+            {
+                GetComponent<SpriteRenderer>().material = default_material;
+            }
+
+            outlined = value;
         }
     }
-
 
 }

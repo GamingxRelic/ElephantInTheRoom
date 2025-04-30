@@ -50,6 +50,8 @@ MonoBehaviour:
   interactableLayers:
     serializedVersion: 2
     m_Bits: 1
+  outline_material: {fileID: 2100000, guid: e7dd448299e24f84fbaafc362f8534b7, type: 2}
+  default_material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!58 &8898729616881082256
 CircleCollider2D:
   m_ObjectHideFlags: 0

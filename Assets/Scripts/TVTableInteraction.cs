@@ -6,15 +6,15 @@ public class TVTableInteraction : MonoBehaviour
 {
     bool on = false;
 
-    [SerializeField] SpriteRenderer tv_on;
-    [SerializeField] SpriteRenderer tv_off;
+    [SerializeField] SpriteRenderer sprite;
+    [SerializeField] Sprite tv_on;
+    [SerializeField] Sprite tv_off;
 
     [SerializeField] AudioSource tv_audio;
 
     private void Start()
     {
-        tv_off.enabled = true;
-        tv_on.enabled = false;
+        sprite.sprite = tv_off;
     }
 
     public void OnInteract()
@@ -22,14 +22,12 @@ public class TVTableInteraction : MonoBehaviour
         if (on)
         {
             tv_audio.Stop();
-            tv_on.enabled = false;
-            tv_off.enabled = true;
+            sprite.sprite = tv_off;
         }
         else
         {
             tv_audio.Play();
-            tv_on.enabled = true;
-            tv_off.enabled = false;
+            sprite.sprite = tv_on;
 
             ChecklistHandler.instance.TriggerGoal("watch_tv");
         }

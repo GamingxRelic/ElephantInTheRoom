@@ -102,11 +102,19 @@ public class ChecklistHandler : MonoBehaviour
     {
         foreach (Goal goal in all_goals)
         {
-            if (!goal.optional && goal.id != "final_goal" && !completed_goals.Contains(goal.id))
+            if (goal.optional || goal.id == "final_goal")
+                continue;
+
+            bool is_completed = completed_goals.Contains(goal.id);
+            bool is_fail_override_completed = !string.IsNullOrEmpty(goal.fail_override_goal)
+                                              && completed_goals.Contains(goal.fail_override_goal);
+
+            if (!is_completed && !is_fail_override_completed)
             {
                 return false;
             }
         }
+
         return true;
     }
 
