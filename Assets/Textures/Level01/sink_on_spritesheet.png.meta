@@ -50,7 +50,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -102,8 +102,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,10 +121,10 @@ TextureImporter:
       name: sink_on_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 416
+        x: 635
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,10 +142,10 @@ TextureImporter:
       name: sink_on_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 832
+        x: 1270
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,10 +163,10 @@ TextureImporter:
       name: sink_on_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 1248
+        x: 1905
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -184,10 +184,10 @@ TextureImporter:
       name: sink_on_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 1664
+        x: 2540
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,10 +205,10 @@ TextureImporter:
       name: sink_on_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 2080
+        x: 3175
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,10 +226,10 @@ TextureImporter:
       name: sink_on_spritesheet_6
       rect:
         serializedVersion: 2
-        x: 2496
+        x: 3810
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -247,10 +247,10 @@ TextureImporter:
       name: sink_on_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 2912
+        x: 4445
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,10 +268,10 @@ TextureImporter:
       name: sink_on_spritesheet_8
       rect:
         serializedVersion: 2
-        x: 3328
+        x: 5080
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,10 +289,10 @@ TextureImporter:
       name: sink_on_spritesheet_9
       rect:
         serializedVersion: 2
-        x: 3744
+        x: 5715
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,10 +310,10 @@ TextureImporter:
       name: sink_on_spritesheet_10
       rect:
         serializedVersion: 2
-        x: 4160
+        x: 6350
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,10 +331,10 @@ TextureImporter:
       name: sink_on_spritesheet_11
       rect:
         serializedVersion: 2
-        x: 4576
+        x: 6985
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -352,10 +352,10 @@ TextureImporter:
       name: sink_on_spritesheet_12
       rect:
         serializedVersion: 2
-        x: 4992
+        x: 7620
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,10 +373,10 @@ TextureImporter:
       name: sink_on_spritesheet_13
       rect:
         serializedVersion: 2
-        x: 5408
+        x: 8255
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -394,10 +394,10 @@ TextureImporter:
       name: sink_on_spritesheet_14
       rect:
         serializedVersion: 2
-        x: 5824
+        x: 8890
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -415,10 +415,10 @@ TextureImporter:
       name: sink_on_spritesheet_15
       rect:
         serializedVersion: 2
-        x: 6240
+        x: 9525
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -436,10 +436,10 @@ TextureImporter:
       name: sink_on_spritesheet_16
       rect:
         serializedVersion: 2
-        x: 6656
+        x: 10160
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -457,10 +457,10 @@ TextureImporter:
       name: sink_on_spritesheet_17
       rect:
         serializedVersion: 2
-        x: 7072
+        x: 10795
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -478,10 +478,10 @@ TextureImporter:
       name: sink_on_spritesheet_18
       rect:
         serializedVersion: 2
-        x: 7488
+        x: 11430
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -499,10 +499,10 @@ TextureImporter:
       name: sink_on_spritesheet_19
       rect:
         serializedVersion: 2
-        x: 7904
+        x: 12065
         y: 0
-        width: 416.66666
-        height: 709
+        width: 635
+        height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -512,90 +512,6 @@ TextureImporter:
       bones: []
       spriteID: f640e963538b90d419f9300f1425dcb8
       internalID: 1929890946
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sink_on_spritesheet_20
-      rect:
-        serializedVersion: 2
-        x: 8320
-        y: 0
-        width: 416.66666
-        height: 709
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d645c7a7e0a8b7e46af9a0d79aeb9ba6
-      internalID: -290984592
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sink_on_spritesheet_21
-      rect:
-        serializedVersion: 2
-        x: 8736
-        y: 0
-        width: 416.66666
-        height: 709
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 342508662e437c0419aa907d7f35abe5
-      internalID: 1242990055
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sink_on_spritesheet_22
-      rect:
-        serializedVersion: 2
-        x: 9152
-        y: 0
-        width: 416.66666
-        height: 709
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d59e737c55830744d916579b4c882231
-      internalID: 1812619561
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sink_on_spritesheet_23
-      rect:
-        serializedVersion: 2
-        x: 9568
-        y: 0
-        width: 416.66666
-        height: 709
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c6dabd9f8f9a6164aa114291649e245c
-      internalID: -624556096
       vertices: []
       indices: 
       edges: []
@@ -624,10 +540,6 @@ TextureImporter:
       sink_on_spritesheet_18: 199490375
       sink_on_spritesheet_19: 1929890946
       sink_on_spritesheet_2: 2133356779
-      sink_on_spritesheet_20: -290984592
-      sink_on_spritesheet_21: 1242990055
-      sink_on_spritesheet_22: 1812619561
-      sink_on_spritesheet_23: -624556096
       sink_on_spritesheet_3: -1517223926
       sink_on_spritesheet_4: 1650044238
       sink_on_spritesheet_5: -349233976

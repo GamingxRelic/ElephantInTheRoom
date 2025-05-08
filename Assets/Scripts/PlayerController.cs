@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     private PlayerInputActions player_input;
     private InputAction move; 
     private InputAction interact;
+    private InputAction drop;
 
     // Interactions
     [SerializeField] private ParticleSystem water_dripping_particles;
@@ -62,6 +63,10 @@ public class PlayerController : MonoBehaviour
     {
         move = player_input.Player.Move;
         move.Enable();
+
+        drop = player_input.Player.Drop;
+        drop.Enable();
+        drop.performed += (context) => DropObject();
 
         click_to_move = player_input.Player.Fire;
         click_to_move.Enable();
@@ -394,6 +399,7 @@ public class PlayerController : MonoBehaviour
         if (held_object != null)
         {
             held_object.transform.SetParent(null);
+            held_object.transform.localScale = held_object.transform.localScale.Abs(); // Drop the object at the drop point
             held_object.transform.position = transf.position; // Drop the object at the specified point
             held_object.GetComponent<SpriteRenderer>().sortingOrder = sprite.sortingOrder;
             held_object = null;

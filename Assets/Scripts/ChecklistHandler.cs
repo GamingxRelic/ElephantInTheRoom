@@ -14,9 +14,11 @@ public class ChecklistHandler : MonoBehaviour
         public string id;
         public string checklist_text;
         public bool optional;
+        public bool hidden_until_completed;
 
         public List<string> required_goals;     // IDs of goals that must be completed first
         public string fail_override_goal;       // If this goal fails, trigger this one instead
+
     }
 
     [SerializeField]
@@ -24,7 +26,29 @@ public class ChecklistHandler : MonoBehaviour
 
     private HashSet<string> completed_goals = new HashSet<string>();
 
-    [SerializeField] private TMP_Text checklist_display;
+    private int current_page = 0;
+    private const int goals_per_page = 5;
+
+    [SerializeField] private List<TMP_Text> checklist_text_slots; // 5 text objects for displaying task names
+    [SerializeField] private List<GameObject> checkmarks; // 5 checkmark game objects
+
+    [SerializeField] private AudioSource scribble_sound;
+
+    [SerializeField] private ChecklistAnim checklist_anim;
+
+
+
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.Alpha1))
+        {
+            ShowNextPage();
+        }
+        else if (Input.GetKey(KeyCode.Alpha2))
+        {
+            ShowPreviousPage();
+        }
+    }
 
 
     void Awake()
@@ -41,6 +65,8 @@ public class ChecklistHandler : MonoBehaviour
 
     private void Start()
     {
+        scribble_sound = GetComponent<AudioSource>();
+        checklist_anim = GetComponent<ChecklistAnim>();
         UpdateChecklistUI();
     }
 
@@ -66,13 +92,10 @@ public class ChecklistHandler : MonoBehaviour
 
         completed_goals.Add(goal_id);
         string display_text = !string.IsNullOrEmpty(g.checklist_text) ? g.checklist_text : goal_id;
+        scribble_sound.Play();
+        StartCoroutine( checklist_anim.ShowThenHide() );
 
         // Check if all non-optional goals are completed (excluding final_goal)
-        
-
-
-
-        //Debug.Log("Goal Completed: " + display_text);
         UpdateChecklistUI();
     }
 
@@ -118,50 +141,82 @@ public class ChecklistHandler : MonoBehaviour
         return true;
     }
 
-
-    private void UpdateChecklistUI()
+    private List<Goal> GetVisibleGoalsInOrder()
     {
-        List<string> checklist_lines = new List<string>();
+        List<Goal> incomplete_visible = new List<Goal>();
+        List<Goal> completed_visible = new List<Goal>();
 
-        // Show required goals first
-        foreach (Goal g in all_goals)
+        foreach (var goal in all_goals)
         {
-            bool is_completed = completed_goals.Contains(g.id);
-            bool is_failed = !string.IsNullOrEmpty(g.fail_override_goal) && completed_goals.Contains(g.fail_override_goal);
+            bool is_completed = completed_goals.Contains(goal.id);
 
-            if (!g.optional)
-            {
-                if (is_completed)
-                {
-                    checklist_lines.Add($"<color=green><s>{g.checklist_text}</s></color>");
-                }
-                else if (is_failed)
-                {
-                    checklist_lines.Add($"<color=red><s>{g.checklist_text}</s></color>");
-                }
-                else
-                {
-                    if (!AreAllRequiredGoalsCompleted() && g.id == "final_goal")
-                        continue;
-                    else
-                        checklist_lines.Add($"{g.checklist_text}");
-                }
-            }
+            if (goal.hidden_until_completed && !is_completed)
+                continue;
+
+            if (goal.id == "final_goal" && !AreAllRequiredGoalsCompleted())
+                continue;
+
+            if (is_completed)
+                completed_visible.Add(goal);
+            else
+                incomplete_visible.Add(goal);
         }
 
-        // Then show completed optional goals only
-        foreach (Goal g in all_goals)
-        {
-            if (g.optional && completed_goals.Contains(g.id))
-            {
-                checklist_lines.Add($"<color=green><s>(Optional) {g.checklist_text}</s></color>");
-            }
-        }
-
-        checklist_display.text = string.Join("\n", checklist_lines);
+        List<Goal> ordered = new List<Goal>();
+        ordered.AddRange(incomplete_visible);
+        ordered.AddRange(completed_visible);
+        return ordered;
     }
 
 
+    private void UpdateChecklistUI()
+    {
+        List<Goal> visible_goals = GetVisibleGoalsInOrder();
 
+        int start_index = current_page * goals_per_page;
+
+        for (int i = 0; i < goals_per_page; i++)
+        {
+            int goal_index = start_index + i;
+
+            if (goal_index < visible_goals.Count)
+            {
+                Goal goal = visible_goals[goal_index];
+                checklist_text_slots[i].text = goal.checklist_text;
+                checkmarks[i].SetActive(completed_goals.Contains(goal.id));
+            }
+            else
+            {
+                checklist_text_slots[i].text = "";
+                checkmarks[i].SetActive(false);
+            }
+        }
+    }
+
+
+    public void ShowNextPage()
+    {
+        int max_page = GetMaxPageIndex();
+        if (current_page < max_page)
+        {
+            current_page++;
+            UpdateChecklistUI();
+        }
+    }
+
+    public void ShowPreviousPage()
+    {
+        if (current_page > 0)
+        {
+            current_page--;
+            UpdateChecklistUI();
+        }
+    }
+
+    private int GetMaxPageIndex()
+    {
+        int total_visible = GetVisibleGoalsInOrder().Count;
+        return Mathf.Max(0, (total_visible - 1) / goals_per_page);
+    }
 
 }
