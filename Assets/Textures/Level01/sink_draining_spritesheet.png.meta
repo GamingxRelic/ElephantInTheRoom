@@ -50,7 +50,7 @@ TextureImporter:
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spriteGenerateFallbackPhysicsShape: 1
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,12 +100,12 @@ TextureImporter:
       name: sink_draining_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 17
         y: 3240
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,12 +121,12 @@ TextureImporter:
       name: sink_draining_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 635
+        x: 652
         y: 3240
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,12 +142,12 @@ TextureImporter:
       name: sink_draining_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 1270
+        x: 1287
         y: 3240
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,12 +163,12 @@ TextureImporter:
       name: sink_draining_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 1905
+        x: 1922
         y: 3240
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: sink_draining_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 2540
+        x: 2557
         y: 3240
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,12 +205,12 @@ TextureImporter:
       name: sink_draining_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 0
+        x: 17
         y: 2160
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -226,12 +226,12 @@ TextureImporter:
       name: sink_draining_spritesheet_6
       rect:
         serializedVersion: 2
-        x: 635
+        x: 652
         y: 2160
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -247,12 +247,12 @@ TextureImporter:
       name: sink_draining_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 1270
+        x: 1287
         y: 2160
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -268,12 +268,12 @@ TextureImporter:
       name: sink_draining_spritesheet_8
       rect:
         serializedVersion: 2
-        x: 1905
+        x: 1922
         y: 2160
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -289,12 +289,12 @@ TextureImporter:
       name: sink_draining_spritesheet_9
       rect:
         serializedVersion: 2
-        x: 2540
+        x: 2557
         y: 2160
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -310,18 +310,18 @@ TextureImporter:
       name: sink_draining_spritesheet_10
       rect:
         serializedVersion: 2
-        x: 0
-        y: 1080
-        width: 635
-        height: 1080
+        x: 12
+        y: 1071
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2416b37bcccc2df4fb6d350ab26a5804
+      spriteID: 32c0554f1e053ea4b91b9e623ff49787
       internalID: 1467505158
       vertices: []
       indices: 
@@ -331,18 +331,18 @@ TextureImporter:
       name: sink_draining_spritesheet_11
       rect:
         serializedVersion: 2
-        x: 635
+        x: 652
         y: 1080
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f19313cfd52149143ada67cf6e0542dc
+      spriteID: 8e58a68456f02b347bd785d6b4c86f66
       internalID: 1177532727
       vertices: []
       indices: 
@@ -352,18 +352,18 @@ TextureImporter:
       name: sink_draining_spritesheet_12
       rect:
         serializedVersion: 2
-        x: 1270
+        x: 1287
         y: 1080
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad7e47e1bd77b9246800422824f4d895
+      spriteID: 526668b3bd03ae6459cce37d9042b2b3
       internalID: 1666509653
       vertices: []
       indices: 
@@ -373,18 +373,18 @@ TextureImporter:
       name: sink_draining_spritesheet_13
       rect:
         serializedVersion: 2
-        x: 1905
+        x: 1922
         y: 1080
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc59ed0857f1a1a418f61fe0c5ab114c
+      spriteID: 4137e52b7de880240b13aebeecefba2f
       internalID: 975621807
       vertices: []
       indices: 
@@ -394,18 +394,18 @@ TextureImporter:
       name: sink_draining_spritesheet_14
       rect:
         serializedVersion: 2
-        x: 2540
+        x: 2557
         y: 1080
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: baa5fd3a862cd704185d548ff78791d2
+      spriteID: f630d6f1f23c36247bbd531097ccce6d
       internalID: -1181342547
       vertices: []
       indices: 
@@ -415,18 +415,18 @@ TextureImporter:
       name: sink_draining_spritesheet_15
       rect:
         serializedVersion: 2
-        x: 0
+        x: 17
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f038824105fe3f4d83889d4224d3218
+      spriteID: 6210f29433136fc4792f00a9cc6bd9db
       internalID: -1872814533
       vertices: []
       indices: 
@@ -436,18 +436,18 @@ TextureImporter:
       name: sink_draining_spritesheet_16
       rect:
         serializedVersion: 2
-        x: 635
+        x: 652
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b074064aa23bff4d852c0c3829cdd23
+      spriteID: 11b6f49ceb40dc74d9ecfdf383be2e31
       internalID: -1583737466
       vertices: []
       indices: 
@@ -457,18 +457,18 @@ TextureImporter:
       name: sink_draining_spritesheet_17
       rect:
         serializedVersion: 2
-        x: 1270
+        x: 1287
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 876faae4514ca1546a64eb594614f101
+      spriteID: 3704ab557af38804596ac6123597a7b6
       internalID: -1139864921
       vertices: []
       indices: 
@@ -478,40 +478,19 @@ TextureImporter:
       name: sink_draining_spritesheet_18
       rect:
         serializedVersion: 2
-        x: 1905
+        x: 1922
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0fff3f58a16e7574cad10da71b044a23
+      spriteID: 5fc6977e7cc6adb4ea085c16891e6ac4
       internalID: -702721145
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sink_draining_spritesheet_19
-      rect:
-        serializedVersion: 2
-        x: 2540
-        y: 0
-        width: 635
-        height: 1080
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 20b10dfdc075b8e4ea916b2d3cfbd1c7
-      internalID: 790883635
       vertices: []
       indices: 
       edges: []
@@ -538,7 +517,6 @@ TextureImporter:
       sink_draining_spritesheet_16: -1583737466
       sink_draining_spritesheet_17: -1139864921
       sink_draining_spritesheet_18: -702721145
-      sink_draining_spritesheet_19: 790883635
       sink_draining_spritesheet_2: 1919760751
       sink_draining_spritesheet_3: -1176780979
       sink_draining_spritesheet_4: -1441891462

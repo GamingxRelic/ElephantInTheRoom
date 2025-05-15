@@ -85,7 +85,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &6359330175981742326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   onInteract:
     m_PersistentCalls:
       m_Calls: []
-  outline_material: {fileID: 2100000, guid: e7dd448299e24f84fbaafc362f8534b7, type: 2}
+  outline_material: {fileID: 2100000, guid: 79b584393c9bd0648900c68802797e17, type: 2}
   default_material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!70 &8995519429809570108
 CapsuleCollider2D:

@@ -11,10 +11,10 @@ public class SinkInteraction : MonoBehaviour
     [SerializeField] private AudioSource faucet_squeek_audio;
     [SerializeField] private AudioSource toothbrush_audio;
 
-    //void Start()
-    //{
-    //    anim = GetComponent<Animator>();
-    //}
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     public void OnInteract()
     {
@@ -67,7 +67,7 @@ public class SinkInteraction : MonoBehaviour
     }
     void TurnOff()
     {
-        //anim.SetTrigger("Off");
+        anim.SetTrigger("Off");
         faucet_squeek_audio.Play();
         water_flow_audio.Stop();
         on = false;
@@ -75,7 +75,7 @@ public class SinkInteraction : MonoBehaviour
 
     void TurnOn()
     {
-        //anim.SetTrigger("On");
+        anim.SetTrigger("On");
         faucet_squeek_audio.Play();
         water_flow_audio.Play();
         on = true;

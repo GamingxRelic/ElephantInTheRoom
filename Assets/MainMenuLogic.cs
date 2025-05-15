@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class MainMenuLogic : MonoBehaviour
 {
 
-    [SerializeField] Transform tie_anchor;
+    [SerializeField] RectTransform tie_anchor;
     [SerializeField] GameObject main_menu_buttons;
     [SerializeField] GameObject options_menu;
 
@@ -41,18 +41,21 @@ public class MainMenuLogic : MonoBehaviour
 
     private void Update()
     {
-        // Rotate tie_anchor towards mouse position
         if (tie_anchor != null)
         {
-            Vector3 mousePosition = Input.mousePosition;
-            mousePosition.z = 0;
-            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+            Vector2 localMousePos;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                tie_anchor.parent as RectTransform, 
+                Input.mousePosition,
+                null,
+                out localMousePos
+            );
 
-            Vector3 direction = worldMousePosition - tie_anchor.position;
-            direction.z = 0; 
-
-            tie_anchor.up = direction.normalized; // Rotate tie_anchor to face the mouse
+            Vector2 direction = localMousePos - ((RectTransform)tie_anchor).anchoredPosition;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            tie_anchor.rotation = Quaternion.Euler(0, 0, angle);
         }
+
     }
 
 

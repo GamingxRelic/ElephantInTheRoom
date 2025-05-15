@@ -100,12 +100,12 @@ TextureImporter:
       name: sink_on_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 17
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,12 +121,12 @@ TextureImporter:
       name: sink_on_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 635
+        x: 652
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -142,12 +142,12 @@ TextureImporter:
       name: sink_on_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 1270
+        x: 1287
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -163,12 +163,12 @@ TextureImporter:
       name: sink_on_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 1905
+        x: 1922
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -184,12 +184,12 @@ TextureImporter:
       name: sink_on_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 2540
+        x: 2557
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -205,12 +205,12 @@ TextureImporter:
       name: sink_on_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 3175
+        x: 3192
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -226,12 +226,12 @@ TextureImporter:
       name: sink_on_spritesheet_6
       rect:
         serializedVersion: 2
-        x: 3810
+        x: 3827
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -247,12 +247,12 @@ TextureImporter:
       name: sink_on_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 4445
+        x: 4462
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -268,12 +268,12 @@ TextureImporter:
       name: sink_on_spritesheet_8
       rect:
         serializedVersion: 2
-        x: 5080
+        x: 5097
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -289,12 +289,12 @@ TextureImporter:
       name: sink_on_spritesheet_9
       rect:
         serializedVersion: 2
-        x: 5715
+        x: 5732
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -310,12 +310,12 @@ TextureImporter:
       name: sink_on_spritesheet_10
       rect:
         serializedVersion: 2
-        x: 6350
+        x: 6367
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -331,12 +331,12 @@ TextureImporter:
       name: sink_on_spritesheet_11
       rect:
         serializedVersion: 2
-        x: 6985
+        x: 7002
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -352,12 +352,12 @@ TextureImporter:
       name: sink_on_spritesheet_12
       rect:
         serializedVersion: 2
-        x: 7620
+        x: 7637
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -373,12 +373,12 @@ TextureImporter:
       name: sink_on_spritesheet_13
       rect:
         serializedVersion: 2
-        x: 8255
+        x: 8272
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -394,12 +394,12 @@ TextureImporter:
       name: sink_on_spritesheet_14
       rect:
         serializedVersion: 2
-        x: 8890
+        x: 8907
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -415,12 +415,12 @@ TextureImporter:
       name: sink_on_spritesheet_15
       rect:
         serializedVersion: 2
-        x: 9525
+        x: 9542
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -436,12 +436,12 @@ TextureImporter:
       name: sink_on_spritesheet_16
       rect:
         serializedVersion: 2
-        x: 10160
+        x: 10177
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -457,12 +457,12 @@ TextureImporter:
       name: sink_on_spritesheet_17
       rect:
         serializedVersion: 2
-        x: 10795
+        x: 10812
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -478,12 +478,12 @@ TextureImporter:
       name: sink_on_spritesheet_18
       rect:
         serializedVersion: 2
-        x: 11430
+        x: 11447
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -499,12 +499,12 @@ TextureImporter:
       name: sink_on_spritesheet_19
       rect:
         serializedVersion: 2
-        x: 12065
+        x: 12082
         y: 0
-        width: 635
-        height: 1080
+        width: 618
+        height: 1047
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

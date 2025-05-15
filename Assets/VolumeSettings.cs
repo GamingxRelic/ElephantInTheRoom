@@ -20,21 +20,21 @@ public class VolumeSettings : MonoBehaviour
     public void SetMasterVolume() // Set the master volume
     {
         float volume = master.value;
-        mixer.SetFloat("master", Mathf.Log10(volume)*20);
+        mixer.SetFloat("master", volume);
         PlayerPrefs.SetFloat("master_volume", volume); // Save the master volume to PlayerPrefs (saves between sessions)
     }
 
     public void SetMusicVolume() // Set the music volume
     {
         float volume = music.value;
-        mixer.SetFloat("music", Mathf.Log10(volume) * 20);
+        mixer.SetFloat("music", volume);
         PlayerPrefs.SetFloat("music_volume", volume);
     }
 
     public void SetSFXVolume() // Set the sound effects volume
     {
         float volume = sfx.value;
-        mixer.SetFloat("sfx", Mathf.Log10(volume) * 20);
+        mixer.SetFloat("sfx", volume);
         PlayerPrefs.SetFloat("sfx_volume", volume);
     }
 
