@@ -10,7 +10,10 @@ public class InteractionObject : MonoBehaviour
     private bool outlined = false;
 
     [SerializeField] private Material outline_material;
+    [SerializeField] private Material red_outline_material;
     [SerializeField] private Material default_material;
+
+    public bool use_red_outline = false;
 
     public bool Outlined
     {
@@ -19,7 +22,10 @@ public class InteractionObject : MonoBehaviour
         {
             if (value)
             {
-                GetComponent<SpriteRenderer>().material = outline_material;
+                if (use_red_outline)
+                    GetComponent<SpriteRenderer>().material = red_outline_material;
+                else
+                    GetComponent<SpriteRenderer>().material = outline_material;
             }
             else
             {

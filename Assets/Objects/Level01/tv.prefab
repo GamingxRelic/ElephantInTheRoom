@@ -161,8 +161,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  outline_material: {fileID: 2100000, guid: e7dd448299e24f84fbaafc362f8534b7, type: 2}
+  outline_material: {fileID: 2100000, guid: 79b584393c9bd0648900c68802797e17, type: 2}
+  red_outline_material: {fileID: 2100000, guid: 816a202f863666d4f8c0478e5b434b4e, type: 2}
   default_material: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  use_red_outline: 0
 --- !u!114 &3663958194798827083
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -4,7 +4,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.SocialPlatforms;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,6 +27,10 @@ public class PlayerController : MonoBehaviour
 
     List<PickableObject> pickable_objects_in_range = new List<PickableObject>();
     List<InteractionObject> interaction_objects_in_range = new List<InteractionObject>();
+
+    // Audio
+    [SerializeField] private AudioSource pickup_item_sound;
+    [SerializeField] private AudioSource drop_item_sound;
 
     // Controls
     private PlayerInputActions player_input;
@@ -170,6 +176,9 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (Time.timeScale == 0f)
+            return; // If game paused return
+
         if (using_pathfinding)
         {
             // Stop applying Rigidbody movement when using pathfinding
@@ -275,6 +284,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnClickToMove(InputAction.CallbackContext context)
     {
+        // If game is paused, return
+        if (Time.timeScale == 0f)
+            return;
+
+        // Prevent clickthrough of UI
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            return;
+
+        // Get clicked object
         Vector3 click_screen_pos = Mouse.current.position.ReadValue();
         Vector3 click_world_pos = Camera.main.ScreenToWorldPoint(click_screen_pos);
         click_world_pos.z = 0;
@@ -287,17 +305,12 @@ public class PlayerController : MonoBehaviour
 
         if (hit != null)
         {
-            Debug.Log($"[CLICK DETECTED] Hit: {hit.name}, Tag: {hit.tag}");
-
-            // === InteractionObject ===
+            // InteractionObject
             var target_interaction = hit.GetComponentInParent<InteractionObject>();
             if (target_interaction != null)
             {
-                Debug.Log($"[INTERACTION OBJECT FOUND] {target_interaction.gameObject.name}");
-
                 if (interaction_objects_in_range.Contains(target_interaction))
                 {
-                    Debug.Log("Already in range — interacting now");
                     target_interaction.Interact();
                     return;
                 }
@@ -309,16 +322,12 @@ public class PlayerController : MonoBehaviour
                 return;
             }
 
-            // === PickableObject ===
+            // PickableObject
             var target_pickable = hit.GetComponentInParent<PickableObject>();
             if (target_pickable != null)
             {
-                Debug.Log($"[PICKABLE OBJECT FOUND] {target_pickable.gameObject.name}");
-
                 if (pickable_objects_in_range.Contains(target_pickable))
                 {
-                    Debug.Log("Already in range — picking up now");
-
                     if (held_object != null)
                         DropObject(target_pickable.transform);
 
@@ -337,13 +346,10 @@ public class PlayerController : MonoBehaviour
         }
 
         // No interactables or pickables — just move to point
-        Debug.Log("Clicked empty ground, walking there.");
         queued_interaction = null;
         queued_pickup = null;
         StartPathTo(click_world_pos);
     }
-
-
 
 
     // This is a helper function I made for when we want to move to a specific point using point and click controls.
@@ -370,7 +376,7 @@ public class PlayerController : MonoBehaviour
             held_object = pickable_objects_in_range[0];
             held_object.transform.SetParent(hand_point);
             held_object.transform.position = hand_point.position;
-
+            pickup_item_sound.Play();
 
         }
     }
@@ -378,6 +384,9 @@ public class PlayerController : MonoBehaviour
 
     public void DropObject()
     {
+        if (Time.timeScale == 0f)
+            return; // If game paused return
+
         if (held_object != null)
         {
             held_object.transform.SetParent(null);
@@ -385,12 +394,7 @@ public class PlayerController : MonoBehaviour
             held_object.transform.localScale = held_object.transform.localScale.Abs(); // Drop the object at the drop point
             held_object.GetComponent<SpriteRenderer>().sortingOrder = sprite.sortingOrder;
             held_object = null;
-            
-
-            // NOTE: This may cause issues later when switching scenes while holding the same object.
-            // THis would only be a problem if we keep the same player instance and switch scenes.
-            // Take a look at SceneManager.MoveObjectToScene for all
-            // children objects of PlayerController.instance.hand_point
+            drop_item_sound.Play();
         }
     }
 
@@ -403,11 +407,15 @@ public class PlayerController : MonoBehaviour
             held_object.transform.position = transf.position; // Drop the object at the specified point
             held_object.GetComponent<SpriteRenderer>().sortingOrder = sprite.sortingOrder;
             held_object = null;
+            drop_item_sound.Play();
         }
     }
 
     private void InteractPerformed(InputAction.CallbackContext context)
     {
+        if (Time.timeScale == 0f)
+            return; // If game paused return
+
         if (pickable_objects_in_range.Count > 0)
         {
             PickupObject();

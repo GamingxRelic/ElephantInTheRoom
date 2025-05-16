@@ -12,7 +12,9 @@ public class PickableObject : MonoBehaviour
 
     [SerializeField] private Material outline_material;
     [SerializeField] private Material default_material;
+    [SerializeField] private Material red_outline_material;
 
+    public bool use_red_outline = false;
     public bool Outlined
     {
         get => outlined;
@@ -20,7 +22,10 @@ public class PickableObject : MonoBehaviour
         {
             if (value)
             {
-                GetComponent<SpriteRenderer>().material = outline_material;
+                if (use_red_outline)
+                    GetComponent<SpriteRenderer>().material = red_outline_material;
+                else
+                    GetComponent<SpriteRenderer>().material = outline_material;
             }
             else
             {
