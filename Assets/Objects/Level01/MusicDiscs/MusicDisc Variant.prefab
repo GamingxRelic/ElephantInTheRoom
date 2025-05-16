@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 620068025628892620, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
       propertyPath: id
-      value: pink_music_disc
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1913105862459195774, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
       propertyPath: m_LocalScale.x

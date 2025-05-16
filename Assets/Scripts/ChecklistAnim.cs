@@ -48,7 +48,7 @@ public class ChecklistAnim : MonoBehaviour
 
     private void OnToggleChecklist(InputAction.CallbackContext context)
     {
-        if(Time.timeScale == 0f)
+        if(PauseMenuLogic.is_paused)
             return; // If game paused return
 
         if (!is_open)
@@ -67,7 +67,7 @@ public class ChecklistAnim : MonoBehaviour
 
     public void OnToggleChecklist()
     {
-        if (Time.timeScale == 0f)
+        if (PauseMenuLogic.is_paused)
             return; // If game paused return
 
         if (!is_open)

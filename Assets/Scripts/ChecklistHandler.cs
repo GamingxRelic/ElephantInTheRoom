@@ -21,8 +21,7 @@ public class ChecklistHandler : MonoBehaviour
 
     }
 
-    [SerializeField]
-    public List<Goal> all_goals = new List<Goal>();
+    [SerializeField] public List<Goal> all_goals = new List<Goal>();
 
     private HashSet<string> completed_goals = new HashSet<string>();
 

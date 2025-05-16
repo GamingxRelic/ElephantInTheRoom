@@ -6,7 +6,8 @@ public class PauseMenuLogic : MonoBehaviour
 {
     public GameObject pause_menu_ui;
 
-    bool is_paused = false;
+    public static bool is_paused = false;
+
     bool options_menu_open = false;
 
     private PlayerInputActions player_input;
@@ -14,6 +15,8 @@ public class PauseMenuLogic : MonoBehaviour
 
     public GameObject main_options_ui;
     public GameObject options_menu_ui;
+
+    [SerializeField] private Animator anim;
 
 
     private void Awake()
@@ -53,7 +56,6 @@ public class PauseMenuLogic : MonoBehaviour
     public void Resume()
     {
         pause_menu_ui.SetActive(false);
-        Time.timeScale = 1f;
         is_paused = false;
     }
 
@@ -68,20 +70,19 @@ public class PauseMenuLogic : MonoBehaviour
         else if (options_menu_open)
         {
             options_menu_ui.SetActive(false);
-            main_options_ui.SetActive(true);
+            anim.SetTrigger("Open");
             options_menu_open = false;
         }
 
         pause_menu_ui.SetActive(true);
-        main_options_ui.SetActive(true);
+        main_options_ui.SetActive(false);
         options_menu_ui.SetActive(false);
-        Time.timeScale = 0f;
         is_paused = true;
     }
 
     public void QuitToMainMenu()
     {
-        Time.timeScale = 1f;
+        is_paused = false;
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -98,4 +99,12 @@ public class PauseMenuLogic : MonoBehaviour
         main_options_ui.SetActive(true);
         options_menu_open = false;
     }
+
+    public void ShowButtons()
+    {
+        main_options_ui.SetActive(true);
+    }
+
+
+
 }

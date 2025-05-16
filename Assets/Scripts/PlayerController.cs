@@ -111,7 +111,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if(held_object != null)
+        if(PauseMenuLogic.is_paused)
+            return;
+
+        if (held_object != null)
         {
             held_object.GetComponent<SpriteRenderer>().sortingOrder = sprite.sortingOrder; //+ 1;
         }
@@ -125,7 +128,7 @@ public class PlayerController : MonoBehaviour
             animator.SetBool("is_moving", rb.velocity.magnitude > 0.1f);
         }
 
-        // Hovered objects outline
+        // Hovered objects outline logic
         Vector3 mouse_world_pos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
         mouse_world_pos.z = 0;
 
@@ -140,43 +143,45 @@ public class PlayerController : MonoBehaviour
                 new_hover = hit.GetComponentInParent<PickableObject>();
         }
 
-        // 🔒 Prevent hover from overriding in-range outline
-        if ((new_hover is InteractionObject int_obj && interaction_objects_in_range.Contains(int_obj)) ||
-            (new_hover is PickableObject pick_obj && pickable_objects_in_range.Contains(pick_obj)))
+        // --- REMOVE outline from previously hovered object ONLY if not in trigger list ---
+        if (hovered_object != null && hovered_object != new_hover)
         {
-            new_hover = null;
+            bool stillInRange = false;
+
+            if (hovered_object is InteractionObject oldInt && interaction_objects_in_range.Contains(oldInt))
+                stillInRange = true;
+            else if (hovered_object is PickableObject oldPick && pickable_objects_in_range.Contains(oldPick))
+                stillInRange = true;
+
+            if (!stillInRange)
+            {
+                if (hovered_object is InteractionObject oldIntObj)
+                    oldIntObj.Outlined = false;
+                else if (hovered_object is PickableObject oldPickObj)
+                    oldPickObj.Outlined = false;
+
+                hovered_object = null;
+            }
         }
 
-        // Only update if changed
-        if (new_hover != hovered_object)
+        // --- Apply new hovered outline ---
+        if (new_hover != null && new_hover != hovered_object)
         {
-            // Clear old hover
-            if (hovered_object != null)
-            {
-                if (hovered_object is InteractionObject old_int_obj)
-                    old_int_obj.Outlined = false;
-                else if (hovered_object is PickableObject old_pick_obj)
-                    old_pick_obj.Outlined = false;
-            }
+            if (new_hover is InteractionObject newIntObj)
+                newIntObj.Outlined = true;
+            else if (new_hover is PickableObject newPickObj)
+                newPickObj.Outlined = true;
 
-            // Apply new hover
             hovered_object = new_hover;
-
-            if (hovered_object != null)
-            {
-                if (hovered_object is InteractionObject new_int_obj)
-                    new_int_obj.Outlined = true;
-                else if (hovered_object is PickableObject new_pick_obj)
-                    new_pick_obj.Outlined = true;
-            }
         }
+
 
 
     }
 
     void FixedUpdate()
     {
-        if (Time.timeScale == 0f)
+        if (PauseMenuLogic.is_paused)
             return; // If game paused return
 
         if (using_pathfinding)
@@ -292,7 +297,7 @@ public class PlayerController : MonoBehaviour
         yield return null;
 
         // If game is paused, return
-        if (Time.timeScale == 0f)
+        if (PauseMenuLogic.is_paused)
             yield break;
 
         // Prevent clickthrough of UI
@@ -385,13 +390,24 @@ public class PlayerController : MonoBehaviour
             held_object.transform.position = hand_point.position;
             pickup_item_sound.Play();
 
+
+            // Quick and dirty way to check if music discs are being picked up and if so, complete the goal.
+            string[] music_discs = { "pink_music_disc", "blue_music_disc", "green_music_disc", "yellow_music_disc", "red_music_disc", "purple_music_disc"};
+            foreach (string disc in music_discs)
+            {
+                if (held_object.id == disc)
+                {
+                    ChecklistHandler.instance.TriggerGoal(disc);
+                    break;
+                }
+            }
         }
     }
 
 
     public void DropObject()
     {
-        if (Time.timeScale == 0f)
+        if (PauseMenuLogic.is_paused)
             return; // If game paused return
 
         if (held_object != null)
@@ -420,7 +436,7 @@ public class PlayerController : MonoBehaviour
 
     private void InteractPerformed(InputAction.CallbackContext context)
     {
-        if (Time.timeScale == 0f)
+        if (PauseMenuLogic.is_paused)
             return; // If game paused return
 
         if (pickable_objects_in_range.Count > 0)
