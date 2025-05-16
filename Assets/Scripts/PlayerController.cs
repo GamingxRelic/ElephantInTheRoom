@@ -346,6 +346,19 @@ public class PlayerController : MonoBehaviour
                     held_object = target_pickable;
                     held_object.transform.SetParent(hand_point);
                     held_object.transform.position = hand_point.position;
+                    pickup_item_sound.Play();
+
+                    // Quick and dirty way to check if music discs are being picked up and if so, complete the goal.
+                    string[] music_discs = { "pink_music_disc", "blue_music_disc", "green_music_disc", "yellow_music_disc", "red_music_disc", "purple_music_disc" };
+                    foreach (string disc in music_discs)
+                    {
+                        if (held_object.id == disc)
+                        {
+                            ChecklistHandler.instance.TriggerGoal(disc);
+                            break;
+                        }
+                    }
+
                     yield break;
                 }
 
@@ -511,6 +524,19 @@ public class PlayerController : MonoBehaviour
                 held_object = obj;
                 held_object.transform.SetParent(hand_point);
                 held_object.transform.position = hand_point.position;
+                pickup_item_sound.Play();
+
+
+                // Quick and dirty way to check if music discs are being picked up and if so, complete the goal.
+                string[] music_discs = { "pink_music_disc", "blue_music_disc", "green_music_disc", "yellow_music_disc", "red_music_disc", "purple_music_disc" };
+                foreach (string disc in music_discs)
+                {
+                    if (held_object.id == disc)
+                    {
+                        ChecklistHandler.instance.TriggerGoal(disc);
+                        break;
+                    }
+                }
 
                 queued_pickup = null;
                 ai.canMove = false;
