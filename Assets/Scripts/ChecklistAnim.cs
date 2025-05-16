@@ -17,6 +17,10 @@ public class ChecklistAnim : MonoBehaviour
     // Time to wait when auto pull out checklist
     [SerializeField] private float show_hide_checklist_time = 1.5f;
 
+    // Audio
+    [SerializeField] private AudioSource open_sound;
+    [SerializeField] private AudioSource close_sound;
+
     private void Awake()
     {
         player_input = new PlayerInputActions();
@@ -49,11 +53,13 @@ public class ChecklistAnim : MonoBehaviour
 
         if (!is_open)
         {
+            open_sound.Play();
             anim.SetTrigger("Open");
             is_open = true;
         }
         else
         {
+            close_sound.Play();
             anim.SetTrigger("Close");
             is_open = false;
         }
@@ -66,11 +72,13 @@ public class ChecklistAnim : MonoBehaviour
 
         if (!is_open)
         {
+            open_sound.Play();
             anim.SetTrigger("Open");
             is_open = true;
         }
         else
         {
+            close_sound.Play();
             anim.SetTrigger("Close");
             is_open = false;
         }

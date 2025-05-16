@@ -43,6 +43,9 @@ public class ChecklistHandler : MonoBehaviour
     [SerializeField] private GameObject next_page_button;
     [SerializeField] private GameObject previous_page_button;
 
+    // Audio
+    [SerializeField] private AudioSource page_turn_sound;
+
 
     private void Update()
     {
@@ -297,6 +300,7 @@ public class ChecklistHandler : MonoBehaviour
         if (current_page < max_page)
         {
             current_page++;
+            page_turn_sound.Play();
             UpdateChecklistUI();
         }
     }
@@ -306,6 +310,7 @@ public class ChecklistHandler : MonoBehaviour
         if (current_page > 0)
         {
             current_page--;
+            page_turn_sound.Play();
             UpdateChecklistUI();
         }
     }

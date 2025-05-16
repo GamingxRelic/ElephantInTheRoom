@@ -284,13 +284,20 @@ public class PlayerController : MonoBehaviour
 
     private void OnClickToMove(InputAction.CallbackContext context)
     {
+        StartCoroutine(HandleClickToMove());
+    }
+
+    private IEnumerator HandleClickToMove() // So that the IsPointerOverGameObject() can work properly, I moved this to a coroutine that will wait for a frame before doing all the logic.
+    {
+        yield return null;
+
         // If game is paused, return
         if (Time.timeScale == 0f)
-            return;
+            yield break;
 
         // Prevent clickthrough of UI
         if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
-            return;
+            yield break;
 
         // Get clicked object
         Vector3 click_screen_pos = Mouse.current.position.ReadValue();
@@ -301,7 +308,7 @@ public class PlayerController : MonoBehaviour
 
         // Ignore self-click
         if (hit != null && hit.gameObject == gameObject)
-            return;
+            yield break;
 
         if (hit != null)
         {
@@ -312,14 +319,14 @@ public class PlayerController : MonoBehaviour
                 if (interaction_objects_in_range.Contains(target_interaction))
                 {
                     target_interaction.Interact();
-                    return;
+                    yield break;
                 }
 
                 // Not in range — pathfind
                 queued_interaction = target_interaction;
                 queued_pickup = null;
                 StartPathTo(target_interaction.transform.position);
-                return;
+                yield break;
             }
 
             // PickableObject
@@ -334,14 +341,14 @@ public class PlayerController : MonoBehaviour
                     held_object = target_pickable;
                     held_object.transform.SetParent(hand_point);
                     held_object.transform.position = hand_point.position;
-                    return;
+                    yield break;
                 }
 
                 // Not in range — pathfind
                 queued_pickup = target_pickable;
                 queued_interaction = null;
                 StartPathTo(target_pickable.transform.position);
-                return;
+                yield break;
             }
         }
 

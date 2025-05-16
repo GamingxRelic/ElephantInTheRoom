@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5533921629477024050
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 620068025628892620, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: id
+      value: pink_music_disc
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913105862459195774, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.30173
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913105862459195774, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.30173
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913105862459195774, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.30173
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913105862459195774, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.913392
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913105862459195774, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.733626
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913105862459195774, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.015664808
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913105862459195774, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913105862459195774, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913105862459195774, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913105862459195774, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913105862459195774, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913105862459195774, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913105862459195774, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5823631373588641436, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_Name
+      value: MusicDisc Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8898729616881082256, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_Radius
+      value: 2.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 9205475160421575791, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d55c87e8c429a94e92571dc7995071c, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 135c76e54951f3e48a54100a8ebbee6d, type: 3}
