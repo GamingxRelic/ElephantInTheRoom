@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +14,8 @@ public class MainMenuLogic : MonoBehaviour
     private bool main_menu_visible = true; // Flag to track if the main menu is visible
     private bool options_menu_visible = false; // Flag to track if the options menu is visible
 
+    [SerializeField] TMP_Text start_text;
+
     private void Start()
     {
         // Set the main menu buttons active and options menu inactive at the start
@@ -22,6 +25,7 @@ public class MainMenuLogic : MonoBehaviour
 
     public void StartGameButtonPressed() // Start game and go to level 01
     {
+        start_text.text = "Loading...";
         // Load the first level
         SceneManager.LoadScene("Level01");
     }
